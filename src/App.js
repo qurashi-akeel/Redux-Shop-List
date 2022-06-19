@@ -1,23 +1,17 @@
-import logo from './logo.svg';
+import { useSelector } from 'react-redux';
+import AddShop from './components/AddShop';
 import './App.css';
+import DisplayShops from './components/DisplayShops';
+import Filter from './components/Filter';
 
 function App() {
+  const shops = useSelector((state) => state.shops.value);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Shop List</h1>
+      <AddShop />
+      <Filter shops={shops} />
+      <DisplayShops />
     </div>
   );
 }
