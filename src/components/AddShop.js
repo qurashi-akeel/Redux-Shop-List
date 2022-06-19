@@ -7,8 +7,8 @@ const AddShop = () => {
   const [shop, setShop] = useState({
     id: 0,
     name: '',
-    category: '',
-    area: '',
+    category: 'Grocery',
+    area: 'Pune',
     openDate: '',
     closeDate: '',
   });
@@ -40,16 +40,12 @@ const AddShop = () => {
         id="shopCategory"
         onChange={(event) => setShop({ ...shop, category: event.target.value })}
       >
-        <option defaultValue={'Grocery'} hidden>
-          Grocery
-        </option>
-        {['Grocery', 'Butcher', 'Baker', 'Chemist', 'Stationery Shop'].map(
-          (cat, i) => (
-            <option key={i} value={cat}>
-              {cat}
-            </option>
-          )
-        )}
+        <option value={'Grocery'}>Grocery</option>
+        {['Butcher', 'Baker', 'Chemist', 'Stationery Shop'].map((cat, i) => (
+          <option key={i} value={cat}>
+            {cat}
+          </option>
+        ))}
       </select>
       <select
         name="shopArea"
@@ -57,11 +53,8 @@ const AddShop = () => {
         id="shopArea"
         onChange={(event) => setShop({ ...shop, area: event.target.value })}
       >
-        <option defaultValue={'Pune'} hidden>
-          Pune
-        </option>
+        <option value={'Pune'}>Pune</option>
         {[
-          'Pune',
           'Thane',
           'Mumbai Suburban',
           'Nashik',
