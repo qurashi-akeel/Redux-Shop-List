@@ -18,7 +18,6 @@ const AddShop = () => {
     e.preventDefault();
   };
 
-  
   return (
     <form className="addShopComp" onSubmit={handleSubmit}>
       <h2>Add Shop :</h2>
@@ -34,13 +33,13 @@ const AddShop = () => {
             id: Math.floor(Math.random() * 10000000),
           })
         }
-        />
+      />
       <select
         name="shopCategory"
         required
         id="shopCategory"
         onChange={(event) => setShop({ ...shop, category: event.target.value })}
-        >
+      >
         <option defaultValue={'Grocery'} hidden>
           Grocery
         </option>
@@ -101,6 +100,7 @@ const AddShop = () => {
       />
       <br />
       {shop.id !== 0 &&
+      /^[a-zA-Z ]+$/.test(shop.name) &&
       new Date(shop.openDate).getTime() < new Date(shop.closeDate).getTime() ? (
         <button onClick={() => dispatch(addShop(shop))}>Add Shop</button>
       ) : (
