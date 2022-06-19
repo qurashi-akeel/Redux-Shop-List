@@ -3,11 +3,9 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import { Provider } from 'react-redux';
-import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
+import { configureStore } from '@reduxjs/toolkit';
 
 import shopsReducer from './features/Shops';
-
-getDefaultMiddleware({ serializableCheck: false });
 
 const store = configureStore({
   reducer: {
